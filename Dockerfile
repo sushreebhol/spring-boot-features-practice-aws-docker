@@ -6,7 +6,7 @@ COPY . /app
 RUN mvn clean
 RUN mvn package -DskipTests -X
 
-FROM openjdk:17
+FROM corretto17
 COPY --from=build /app/target/*.jar app.jar
 
 EXPOSE 8080
